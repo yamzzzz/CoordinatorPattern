@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/post_fragment">
+
+    <fragment
+        android:id="@+id/post_fragment"
+        android:name="com.example.architecturedemo.ui.basic.post.PostFragment"
+        android:label="Home"
+        tools:layout="@layout/post_fragment">
+        <action
+            android:id="@+id/open_detail_page"
+            app:destination="@id/detailFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.architecturedemo.ui.basic.detail.DetailFragment"
+        android:label="@string/post_detail"
+        tools:layout="@layout/detail_page">
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="1"/>
+    </fragment>
+
+</navigation>
