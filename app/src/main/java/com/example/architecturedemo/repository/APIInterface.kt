@@ -17,6 +17,6 @@ interface APIInterface {
     @GET("posts/{postId}")
     fun getPostById(@Path(value = "postId") postId: Int): Call<Post>
 
-    @GET("users/1")
-    fun getUser(): Call<User>
+    @GET("users")
+    fun getUsers(): Call<List<User>>
 }

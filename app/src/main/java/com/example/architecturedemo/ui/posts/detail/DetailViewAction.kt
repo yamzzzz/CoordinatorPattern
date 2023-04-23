@@ -1,4 +1,4 @@
-package com.example.architecturedemo.ui.basic.detail
+package com.example.architecturedemo.ui.posts.detail
 
 import com.example.architecturedemo.viewstate.ViewAction
 

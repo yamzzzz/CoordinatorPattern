@@ -1,7 +1,6 @@
-package com.example.architecturedemo.ui.basic.detail
+package com.example.architecturedemo.ui.posts.detail
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
 import com.example.architecturedemo.model.Post
 import com.example.architecturedemo.repository.APIService
 import com.example.architecturedemo.ui.base.BaseViewModel

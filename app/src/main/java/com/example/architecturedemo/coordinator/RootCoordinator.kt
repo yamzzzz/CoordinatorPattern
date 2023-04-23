@@ -6,7 +6,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 
-abstract class RootCoordinator {
+abstract class RootCoordinator(val featureNavigator: FeatureNavigator) {
     var navController: NavController? = null
 
     var activity: FragmentActivity? = null

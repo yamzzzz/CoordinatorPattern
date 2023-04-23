@@ -4,10 +4,8 @@ import android.content.Context
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.navigation.Navigation.findNavController
 import com.example.architecturedemo.databinding.PostItemBinding
 import com.example.architecturedemo.model.Post
-import com.example.architecturedemo.ui.basic.post.PostFragmentDirections
 
 /* 
  * Created by Yamini on 14/5/18.
@@ -47,38 +45,3 @@ class PostAdapter(val context: Context, var posts: List<Post>?) :
         }
     }
 }
-
-
-/*
-class PostAdapter (val context: Context, var data : List<Post>?) : RecyclerView.Adapter<PostAdapter.Holder>() {
-    override fun onBindViewHolder(holder: Holder, position: Int) {
-        holder.bindItems(data?.get(position))
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
-        val v = LayoutInflater.from(context).inflate(R.layout.post_item, parent, false)
-        return Holder(v)
-    }
-
-    override fun getItemCount(): Int = data?.size?:0
-
-    fun addItems(t: List<Post>?) {
-        data = t
-        notifyDataSetChanged()
-    }
-
-    inner class Holder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        fun bindItems(user: Post?){
-            */
-/*itemView.title.text =  user?.title
-            itemView.description.text = user?.body
-
-            itemView.setOnClickListener {
-                val direction = HomeFragmentDirections.openDetails(user!!.id)
-                findNavController(itemView).navigate(direction)
-            }*//*
-
-        }
-    }
-
-}*/

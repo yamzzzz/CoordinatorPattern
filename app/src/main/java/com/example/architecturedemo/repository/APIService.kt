@@ -78,16 +78,16 @@ class APIService {
             return data
         }
 
-        fun getUser(): LiveData<User> {
-            val data = MutableLiveData<User>()
+        fun getUsers(): LiveData<List<User>> {
+            val data = MutableLiveData<List<User>>()
 
-            apiInterface.getUser().enqueue(object : Callback<User> {
-                override fun onResponse(call: Call<User>, response: Response<User>) {
-                    data.setValue(response.body())
+            apiInterface.getUsers().enqueue(object : Callback<List<User>> {
+                override fun onResponse(call: Call<List<User>>, response: Response<List<User>>) {
+                    data.value = response.body()
                 }
 
-                override fun onFailure(call: Call<User>, t: Throwable) {
-                    data.setValue(null)
+                override fun onFailure(call: Call<List<User>>, t: Throwable) {
+                    data.value = null
                     t.printStackTrace()
                 }
             })

@@ -1,23 +1,26 @@
-package com.example.architecturedemo.ui.basic.post
+package com.example.architecturedemo.ui.users.user
 
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.architecturedemo.R
 import com.example.architecturedemo.adapter.PostAdapter
+import com.example.architecturedemo.adapter.UserAdapter
 import com.example.architecturedemo.databinding.PostFragmentBinding
 import com.example.architecturedemo.model.Post
+import com.example.architecturedemo.model.User
 import com.example.architecturedemo.ui.base.BaseFragment
+import com.example.architecturedemo.ui.posts.post.PostFragment
+import com.example.architecturedemo.ui.posts.post.UserViewAction
 
 
 /* 
  * Created by Yamini on 16/5/18.
  */
 
-class PostFragment : BaseFragment<PostViewAction, PostViewModel>() {
+class UserFragment : BaseFragment<UserViewAction, UserViewModel>() {
     override val layoutResourceId = R.layout.post_fragment
 
     companion object {
@@ -25,9 +28,9 @@ class PostFragment : BaseFragment<PostViewAction, PostViewModel>() {
     }
 
     private lateinit var mBinding: PostFragmentBinding
-    override val viewModel: PostViewModel by viewModels()
-    lateinit var postAdapter: PostAdapter
-    var data: List<Post> = ArrayList()
+    override val viewModel: UserViewModel by viewModels()
+    lateinit var userAdapter: UserAdapter
+    var data: List<User> = ArrayList()
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -37,12 +40,11 @@ class PostFragment : BaseFragment<PostViewAction, PostViewModel>() {
         context?.let {
             mBinding.userList.apply {
                 layoutManager = LinearLayoutManager(it)
-                postAdapter = PostAdapter(it, data)
-                adapter = postAdapter
-                postAdapter.onItemClickListener = {
-                    Log.v("Yamiii", ""+it.id)
-                    postAction(PostViewAction.OpenPostDetail(it.id))
-                    //postClickAction(PostViewAction.OpenPostDetail(it.id))
+                userAdapter = UserAdapter(it, data)
+                adapter = userAdapter
+                userAdapter.onItemClickListener = {
+                    Log.v("Yamiii", ""+it.name)
+                  //  postAction(UserViewAction.OpenPostDetail(it.id))
                 }
             }
         }
@@ -51,7 +53,7 @@ class PostFragment : BaseFragment<PostViewAction, PostViewModel>() {
         viewModel.fetchAllData().observe(
             viewLifecycleOwner
         ) { t ->
-            postAdapter.addItems(t)
+            userAdapter.addItems(t)
         }
 
     }

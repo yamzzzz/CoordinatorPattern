@@ -7,7 +7,7 @@ import com.example.architecturedemo.coordinator.NavigationDestination
 import com.example.architecturedemo.coordinator.RootCoordinator
 import com.example.architecturedemo.ui.posts.detail.DetailFragmentArgs
 
-class PostCoordinator(featureNavigator: FeatureNavigator): RootCoordinator(featureNavigator) {
+class MainCoordinator(featureNavigator: FeatureNavigator): RootCoordinator(featureNavigator) {
 
     override fun onEvent(event: Any): Boolean {
       when (event) {
